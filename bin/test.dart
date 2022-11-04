@@ -2,6 +2,7 @@ import 'dart:io';
 
 void main (){
   var harga = [['Mie', 'Shampo'],[3000, 1000]];
+  var list = [[],[],[]];
   bool running = true;
   dynamic ppn = 10;
 
@@ -51,6 +52,9 @@ void main (){
       int item = int.parse(stdin.readLineSync()!);
 
       dynamic totalharga = hargaitem * item;
+      list[0].add(namaitem);
+      list[1].add(item);
+      list[2].add(totalharga);
       print('$namaitem        Jumlah $item       harga $totalharga');
       total = total +totalharga;
 
@@ -83,13 +87,37 @@ void main (){
   kritik&saran :12312311232, SMS :934134105901''');
   print('==================================================');
 
+  for(int i = 0;i<1;i++){
+    for(int j = 0;j<list[0].length;j++){
+      stdout.write('${list[i][j]}   ');
 
+    }
+  }
+  print('');
+  for(int i = 1;i<2;i++){
+    for(int j = 0;j<list[0].length;j++) {
+      stdout.write('${list[i][j]}       ');
+    }
+  }
+  print('');
+  for(int i = 2;i<3;i++){
+    for(int j = 0;j<list[0].length;j++){
+      stdout.write('${list[i][j]}   ');
+
+    }
+  }
+  print('');
+  print('Total belanja      $total');
   print('Tunai             $tunai');
-  double z = tunai - total;
-  print('Kembalian        $z');
-  double op=total / ppn;
-  print('PPN               $op');
+  if(tunai < total){
+    print('Uang tidak cukup');
+  }else {
+    double z = tunai - total;
 
+    print('Kembalian        $z');
+    double op = total / ppn;
+    print('PPN               $op');
+  }
 
 
 
